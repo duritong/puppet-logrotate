@@ -3,7 +3,7 @@
 class logrotate::selinux {
     case $operatingsystem {
         gentoo: { include logrotate::selinux::gentoo }
-        default: { notice("No selinux stuff yet defined for your operatingsystem") }
+        default: { info("No selinux stuff yet defined for your operatingsystem") }
     }
 }
 
