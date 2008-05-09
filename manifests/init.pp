@@ -7,7 +7,13 @@
 
 # modules_dir { "logrotate": }
 class logrotate {
-    include logrotate::base
+    case $operatingsystem {
+        gentoo: { include logroate::gentoo }
+        default: { include logrotate::base }
+    }
+    if $selinux {
+        include logrotate::selinux
+    }
 }
 class logrotate::base {
     package{logrotate:
@@ -23,4 +29,8 @@ class logrotate::base {
     }
 }
 
-
+class logrotate::gentoo inherits logrotate::base {
+    Package[logrotate]{
+        category => 'app-admin',
+    }
+}
