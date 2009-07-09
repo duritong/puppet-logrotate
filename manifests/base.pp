@@ -4,7 +4,7 @@ class logrotate::base {
     }
 
     file{"/etc/cron.daily/logrotate":
-        source => [ "puppet://$server/logrotate/logrotate.cron.daily.${operatingsystem}.${lsbdistrelease}",
+        source => [ "puppet://$server/logrotate/logrotate.cron.daily.${operatingsystem}.${lsbdistcodename}",
                     "puppet://$server/logrotate/logrotate.cron.daily.${operatingsystem}",
                     "puppet://$server/logrotate/logrotate.cron.daily" ],
         require => Package[logrotate],
