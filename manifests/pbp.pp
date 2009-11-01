@@ -10,9 +10,9 @@ class logrotate::pbp inherits logrotate::base {
         }
 
         File["/etc/cron.daily/logrotate"]{
-            source => [ "puppet://$server/logrotate/tmptmp/logrotate.cron.daily.${operatingsystem}.${lsbdistrelease}",
-                        "puppet://$server/logrotate/tmptmp/logrotate.cron.daily.${operatingsystem}",
-                        "puppet://$server/logrotate/tmptmp/logrotate.cron.daily" ],
+            source => [ "puppet://$server/modules/logrotate/tmptmp/logrotate.cron.daily.${operatingsystem}.${lsbdistrelease}",
+                        "puppet://$server/modules/logrotate/tmptmp/logrotate.cron.daily.${operatingsystem}",
+                        "puppet://$server/modules/logrotate/tmptmp/logrotate.cron.daily" ],
             require +> File["/var/roottmp"],
         }
     }
