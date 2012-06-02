@@ -5,8 +5,8 @@
 #######################################
 
 class logrotate {
-    case $operatingsystem {
-        gentoo: { include logroate::gentoo }
-        default: { include logrotate::base }
-    }
+  case $::operatingsystem {
+    gentoo: { include logroate::gentoo }
+    default: { include logrotate::base }
+  }
 }
